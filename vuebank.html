@@ -1,0 +1,105 @@
+<html>
+	<title>Vue.js Bank</title>
+	<head>
+		<link href="https://fonts.googleapis.com/css?family=Kanit:200,400,600" rel="stylesheet">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+		<link rel="stylesheet" href="css/styles.css"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	</head>
+
+	<body>
+	<div id="app" v-cloak>
+		<!-- Navigation -->
+		<nav class="nav">
+			<div class="container">
+				<div class="nav-img">
+					<img src="assets/logo.jpg">
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</nav>
+		<!-- Container -->
+		<div class="container m-top">
+			<div class="row">
+				<!--Start Sidebar -->
+	      <div class="sidebar col-md-4">
+					<div class="sidebar-header">
+						<img src="../assets/icons/arrows2.png"/>
+						<p>Make a Transfer</p>
+					</div>
+					<form v-on:submit.prevent="addTransaction">
+					<label for="faccount">FROM ACCOUNT</label>
+					<input
+						type="text"
+						id="faccount"
+						autofocus autocomplete="off"
+						v-model="bankAccount"
+						disabled
+					>
+					<label for="taccount">TO ACCOUNT</label>
+					<input
+						type="text"
+						id="taccount"
+						autofocus autocomplete="off"
+						placeholder="Georgia Power Electric Company"
+						v-model="merchant"
+					>
+					<label for="faccount">AMOUNT</label>
+					<input
+						type="text"
+						id="faccount"
+						autofocus autocomplete="off"
+						placeholder="$ 0.00"
+						v-model="amount"
+					>
+					<button type="button" class="button" @click.prevent="addTransaction">Submit</button>
+				</form>
+      	</div>
+				<!-- Start Results -->
+				<div class="results col-md-7 offset-md-1">
+					<div class="results-header">
+						<img src="../assets/icons/briefcase2.png"/>
+						<p>Recent Transactions</p>
+					</div>
+					<div class="button-group">
+						<input type="text" v-model="search" placeholder="Search"/>
+						<button class="button-small" type="button">DATE</button>
+						<button class="button-small" type="button">BENIFICARY</button>
+						<button class="button-small" type="button">AMOUNT</button>
+					</div>
+					<div class="result-container">
+						<ul>
+							<li v-for="transfer in transfers.data">
+								<div class="categoryCode" :style="{ 'background-color': transfer.categoryCode }"></div>
+								<div class="transfer-date">
+									{{ transfer.transactionDate | moment }}
+								</div>
+								<div class="transfer-img">
+									 <img v-bind:src="transfer.merchantLogo">
+								</div>
+								<div class="transfer-text">
+									<p>{{ transfer.merchant }}</p>
+									<span>{{ transfer.transactionType }}</span>
+							  </div>
+								<div class="transfer-amount">
+									<span>-${{ transfer.amount }}</span>
+								</div>
+							</li>
+						</ul>
+					</div> <!-- end result container -->
+				</div>
+			</div> <!-- end row -->
+	</div> <!-- end container -->
+</div> <!-- end app -->
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.0/vue.js"
+ type="text/javascript"></script>
+<script type="text/javascript" src="vue-moment.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<script src="app.js"></script>
+	</body>
+</html>

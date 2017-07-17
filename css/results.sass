@@ -1,0 +1,85 @@
+.results, .sidebar
+  box-shadow: 0px 0px 22px rgba(0, 0, 0, 0.6)
+  margin-top: 108px
+  background-color: white
+
+.results
+  @media(max-width: 768px)
+    margin-top: 48px
+  p
+    margin: 0
+  span
+    margin: 0
+
+  .results-header
+    background-color: #0C8397
+    padding: 1em
+    margin: 0px -15px
+
+    p
+      text-align: center
+      margin: 0
+      color: white
+    img
+      position: absolute
+      top: 18px
+      left: 15px
+      height: 18px
+
+  .result-container
+    padding: 15px
+
+    ul
+      padding: 0 !important
+      list-style-type: none
+      list-style-position: inside
+      list-style: none
+      margin: 0px -15px
+      border: 1px solid #eee
+
+      li
+        padding: 10px 15px
+        list-style: none
+        display: flex
+        justify-content: space-between
+        align-items: center
+        border-bottom: 1px solid #eee
+        position: relative
+
+        &:last-child
+          border-bottom: 0
+
+        .transfer-img
+          img
+            height: 36px
+            -webkit-filter: grayscale(100%) /* Safari 6.0 - 9.0 */
+            filter: grayscale(100%)
+
+        .transfer-img, .transfer-text, .transfer-date, .transfer-merchant
+          margin-right: 1em
+
+        .transfer-date
+          line-height: 36px
+          flex-grow: 0
+
+        .transfer-img
+          flex-grow: 1
+
+        .transfer-text
+          flex-grow: 16
+          line-height: 20px
+
+        .categoryCode
+          height: calc(100% + 1px)
+          width: 8px
+          position: absolute
+          left: -1px
+          top: -1px
+
+        .transfer-amount
+          span
+            font-weight: bold
+
+        .transfer-text
+          p
+            font-weight: bold

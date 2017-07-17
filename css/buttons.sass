@@ -1,0 +1,56 @@
+
+input
+  border: 0
+  border-bottom: 2px solid #eee
+  outline: none
+  width: 100%
+
+label
+  margin: 1em 0em
+  font-weight: bold
+
+.button
+  padding: 10px 15px
+  background-color: #EE7033
+  border-color: #fff
+  color: #fff
+  border-image: none
+  border: 1px solid #EE7033
+  border-radius: 4px
+  outline: none
+  margin: 1em 0em
+  width: 50%
+  float: right
+
+.button-group
+  display: flex
+  justify-content: space-between
+  align-items: center
+
+  @media(max-width: 768px)
+    flex-wrap: wrap
+
+  input
+    margin: 1em 1em 1em 0em
+    border-bottom: 1px solid #eee
+
+    @media(max-width: 768px)
+      margin: 1em 0em
+
+
+  .button-small
+    padding: 5px 12px
+    border-color: #fff
+    background-color: #fff
+    border-image: none
+    border: 1px solid #eee
+    outline: none
+    margin-top: 0px
+    float: left
+    color: #000
+    font-size: 0.8em
+
+    &:first-of-type
+      border-right: 0
+    &:last-of-type
+      border-left: 0

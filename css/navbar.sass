@@ -1,0 +1,26 @@
+.nav
+  background-color: #fff
+  padding: 1em 2em
+  width: 100%
+  position: fixed
+  border-bottom: 1px solid #eee
+  top: 0
+  left: 0
+  z-index: 2
+
+  &:after,&:before
+    content: ''
+    display: table
+    clear: both
+
+  .container
+    padding: 0
+
+    .nav-img, .logo
+      float: left
+
+    .nav-img
+      img
+        height: 30px
+        margin: 0 1em
+        float: left
