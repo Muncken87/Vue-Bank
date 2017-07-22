@@ -63,9 +63,9 @@
 					</div>
 					<div class="button-group">
 						<input type="text" v-model="search" placeholder="Search"/>
-						<button class="button-small" type="button">DATE</button>
+						<button class="button-small" @click="filterDate" type="button">DATE</button>
 						<button class="button-small" type="button">BENIFICARY</button>
-						<button class="button-small" type="button">AMOUNT</button>
+						<button class="button-small" @click="filterAmount" type="button">AMOUNT</button>
 					</div>
 					<div class="result-container">
 						<ul>
